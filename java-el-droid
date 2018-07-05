@@ -1,0 +1,49 @@
+public class Droid{
+ int batteryLevel;
+  
+ public Droid() {
+   batteryLevel = 100;
+ }
+ public void activate() {
+   System.out.println("Activated. How can i help you?");
+   batteryLevel = batteryLevel - 5;
+   System.out.println("Battery level is: " + batteryLevel + " percent.");
+ }
+  public void chargeBattery(int hours) {
+    System.out.println("Droid charging...");
+    if(batteryLevel + hours > 100) {
+      batteryLevel = 100;
+    }
+    else {
+      batteryLevel = batteryLevel + hours;
+      System.out.println("Battery level: " + batteryLevel);
+    }
+    
+  }
+  public int checkBatteryLevel() {
+    return batteryLevel;
+  }
+  public void hover(int feet) {
+    if(feet > 2) {
+      System.out.println("Error! I cannot hover above 2 feet");
+    }
+    else {
+      System.out.println("Hovering...");
+      batteryLevel = batteryLevel - 20;
+      System.out.println("Battery level is: " + batteryLevel);
+    }
+    
+  }
+  
+ 
+  
+  
+  public static void main(String[] args) {
+    
+   Droid on = new Droid();
+   on.activate();
+    on.chargeBattery(5);
+    on.hover(2);
+  }
+  
+}
